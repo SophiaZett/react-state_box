@@ -1,6 +1,6 @@
 import "./styles.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
   // let isActive = false;
@@ -13,10 +13,19 @@ export default function App() {
     console.log(isActive);
   }
 
+  useEffect(() => {
+    console.log(`Der Zustand von isActive ist jetzt: ${isActive}`);
+  });
+
   return (
     <main>
       <div className={`box ${isActive ? "box--active" : ""}`} />
-      <button onClick={handleClick}>Activate</button>
+      <button onClick={handleClick}>
+        {isActive ? "Deaktivieren" : "Aktivieren"}
+      </button>{" "}
     </main>
   );
 }
+
+//Bonus Task in Zeile 24
+//Hacker Bonus Task in Zeile 16-18
